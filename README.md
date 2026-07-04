@@ -1,137 +1,156 @@
-# 📊 Dynamic Product Intelligence Platform
+# 📊 Dynamic Product & Inventory Catalog Intelligence Platform
 
-A full-stack Product Intelligence Platform built with **FastAPI**, **Streamlit**, **SQLite**, and **Python** that can analyze **any Product or Inventory CSV dataset**.
+A full-stack **Product & Inventory Catalog Intelligence Platform** built with **FastAPI**, **Streamlit**, **SQLite**, and **Python**.
 
-The platform automatically uploads, validates, stores, indexes, searches, and analyzes product datasets using advanced Data Structures like **Trie**, **HashMap**, and **Min Heap**.
+The platform allows users to upload supported **Product Catalog CSV datasets**, automatically validate and store the data, build efficient in-memory indexes using **Trie**, **HashMap**, and **Min Heap**, and interactively search and analyze products through a modern Streamlit dashboard.
 
 ---
 
-# 🚀 Project Overview
+# 🚀 Overview
 
-Traditional product datasets require manual searching, filtering, and analysis.
+Product catalogs are widely used in retail, e-commerce, warehouses, and inventory management. Searching and analyzing large catalogs manually is time-consuming.
 
-This platform automates the entire workflow.
+This platform automates the process by providing:
 
-Simply upload any Product/Inventory CSV file and the platform will:
-
-- Automatically detect columns
-- Validate and clean the dataset
-- Store records into SQLite
-- Build in-memory indexes
-- Enable lightning-fast searching
-- Enable instant product lookup
-- Identify cheapest products
-- Display interactive analytics dashboards
+- CSV Upload
+- Automatic Column Mapping
+- Data Validation
+- SQLite Storage
+- Trie-based Product Search
+- HashMap-based Product Lookup
+- Min Heap Price Intelligence
+- Interactive Analytics Dashboard
 
 ---
 
 # 🎯 Problem Statement
 
-Organizations receive thousands of product records from suppliers, warehouses, retailers, or marketplaces.
+Organizations frequently work with product catalogs received from suppliers, retailers, warehouses, or e-commerce platforms.
 
-Searching and analyzing these datasets manually is time-consuming.
+Finding products, comparing prices, and analyzing catalog information manually becomes inefficient as datasets grow larger.
 
-This project provides a dynamic platform capable of working with **any product/inventory CSV dataset** without requiring code changes.
-
----
-
-# ✅ What This System Provides
-
-## 1. Dynamic CSV Upload
-
-Upload any Product or Inventory CSV.
-
-Example datasets:
-
-- Grocery Products
-- Electronics
-- Mobile Phones
-- Books
-- Furniture
-- Pharmacy Products
-- Automobile Parts
-- Fashion Products
-- Warehouse Inventory
-- Retail Inventory
-- Ecommerce Catalogs
-
-No code modification required.
+This project provides an intelligent backend and dashboard for efficiently managing and exploring product catalog datasets.
 
 ---
 
-## 2. Automatic Column Mapping
+# ✨ Features
 
-The system automatically detects columns like
+## 📁 Dynamic CSV Upload
 
-- Product Name
-- Price
-- Brand
-- Category
-- Stock
-- Rating
-- Supplier
-- Description
+Upload supported Product Catalog CSV files directly from the Streamlit interface.
 
-Even if uploaded datasets use different column names.
+After upload, the platform automatically:
 
-Example
-
-Instead of
-
-```
-Product Name
-```
-
-it also understands
-
-```
-Item Name
-Item
-Title
-Product
-Name
-```
+- Reads the CSV
+- Maps supported column names
+- Cleans and validates the dataset
+- Stores data into SQLite
+- Builds in-memory indexes
 
 ---
 
-## 3. Data Validation
+## 🔄 Automatic Column Mapping
 
-The platform
+Different datasets use different column names.
 
-- Removes invalid records
-- Cleans missing values
-- Converts data types
-- Handles inconsistent datasets
+The platform automatically recognizes supported alternatives.
+
+### Product Name
+
+- product
+- product_name
+- item
+- item_name
+- name
+- title
+
+### Price
+
+- price
+- sale_price
+- selling_price
+- cost
+- mrp
+- market_price
+- unit_price
+
+### Brand
+
+- brand
+- company
+- manufacturer
+
+### Category
+
+- category
+- group
+- department
+
+### Stock
+
+- stock
+- inventory
+- quantity
+
+### Rating
+
+- rating
+- stars
+- review
+
+### Supplier
+
+- supplier
+- vendor
+
+### Description
+
+- description
+- details
 
 ---
 
-## 4. SQLite Storage
+## ✅ Data Validation
 
-Validated products are stored into SQLite.
+Before storing data, the platform validates the uploaded dataset.
 
-Provides persistent storage.
+Validation includes:
+
+- Required column checking
+- Missing value handling
+- Data type conversion
+- Invalid record removal
+- Dataset cleaning
 
 ---
 
-## 5. Trie Search Engine
+## 💾 SQLite Storage
 
-Uses the Trie Data Structure.
+Validated records are stored in SQLite.
 
-Supports
+This allows persistent storage and fast retrieval.
+
+---
+
+## 🔍 Trie Search Engine
+
+Product searching is implemented using the **Trie Data Structure**.
+
+Supports:
 
 - Prefix Search
 - Fast Searching
-- Autocomplete
+- Auto-complete style suggestions
 
 Example
 
-Search
+Search:
 
 ```
 ri
 ```
 
-Returns
+Results:
 
 ```
 Rice
@@ -142,30 +161,39 @@ Rice Vermicelli
 
 ---
 
-## 6. HashMap Product Lookup
+## ⚡ HashMap Product Lookup
 
-Provides O(1) lookup.
+Uses a **HashMap** for constant-time product retrieval.
 
-Retrieve complete product details instantly.
+Returns product information including:
+
+- Product Name
+- Brand
+- Category
+- Supplier
+- Price
+- Rating
+- Stock
+- Description
 
 ---
 
-## 7. Min Heap Price Intelligence
+## 💰 Min Heap Price Intelligence
 
-Uses Min Heap to identify
+Uses a **Min Heap** to efficiently retrieve:
 
 - Cheapest Product
 - Top Cheapest Products
 
-without sorting the entire dataset.
+without sorting the complete dataset every time.
 
 ---
 
-## 8. Analytics Dashboard
+## 📈 Analytics Dashboard
 
-Interactive dashboard built using Streamlit.
+Interactive dashboard built with Streamlit and Plotly.
 
-Displays
+Displays:
 
 - Total Products
 - Average Price
@@ -175,7 +203,50 @@ Displays
 - Price Distribution
 - Rating Distribution
 - Cheapest Products
-- Expensive Products
+- Most Expensive Products
+
+---
+
+# 📂 Supported Dataset Types
+
+The platform is designed for **Product & Inventory Catalog datasets**.
+
+Examples include:
+
+- Grocery Product Catalog
+- Electronics Catalog
+- Mobile Phone Catalog
+- Book Catalog
+- Furniture Catalog
+- Pharmacy Product Catalog
+- Fashion Product Catalog
+- Retail Product Catalog
+- Warehouse Product Catalog
+- E-commerce Product Listings
+
+---
+
+# ⚠ Dataset Requirements
+
+The uploaded CSV **must contain**:
+
+## Required Columns
+
+| Column | Description |
+|---------|-------------|
+| Product Name (or supported equivalent) | Searchable product identifier |
+| Price (or supported equivalent) | Product selling price |
+
+## Optional Columns
+
+- Brand
+- Category
+- Stock
+- Rating
+- Supplier
+- Description
+
+> **Note:** Datasets that contain only Product IDs without a searchable product name are **not supported** in the current version.
 
 ---
 
@@ -185,13 +256,14 @@ Displays
 
 Purpose
 
-Fast Prefix Search
+- Prefix Search
+- Product Search
 
 Complexity
 
-Search
-
-O(length of word)
+```
+Search → O(length of prefix)
+```
 
 ---
 
@@ -199,13 +271,13 @@ O(length of word)
 
 Purpose
 
-Instant Product Lookup
+- Product Lookup
 
 Complexity
 
-Lookup
-
-O(1)
+```
+Lookup → O(1)
+```
 
 ---
 
@@ -213,36 +285,34 @@ O(1)
 
 Purpose
 
-Cheapest Product Retrieval
+- Cheapest Product Retrieval
 
 Complexity
 
-Cheapest Product
+```
+Cheapest Product → O(1)
 
-O(1)
-
-Top K Cheapest
-
-O(k log n)
+Top K Cheapest → O(k log n)
+```
 
 ---
 
-# ⚙️ Technology Stack
+# 🛠 Technology Stack
 
-Backend
+## Backend
 
 - Python
 - FastAPI
 - SQLAlchemy
 - SQLite
 
-Frontend
+## Frontend
 
 - Streamlit
 - Plotly
 - Pandas
 
-Libraries
+## Libraries
 
 - Requests
 - Heapq
@@ -289,7 +359,7 @@ dynamic-product-intelligence-platform/
 
 │   ├── product_index.py
 
-│   ├── index_manager.py
+│   └── index_manager.py
 
 │
 
@@ -322,74 +392,24 @@ dynamic-product-intelligence-platform/
 ├── README.md
 
 └── .gitignore
-
 ```
 
 ---
 
 # 🌐 REST APIs
 
-## Upload Dataset
-
-```
-POST /upload
-```
-
-Uploads Product CSV.
-
----
-
-## Search Products
-
-```
-GET /search?q=rice
-```
-
-Trie Search.
+| Method | Endpoint | Description |
+|----------|-----------|-------------------------------|
+| POST | `/upload` | Upload Product Catalog |
+| GET | `/search?q=rice` | Trie Product Search |
+| GET | `/product?name=Rice` | Product Lookup |
+| GET | `/cheapest` | Cheapest Product |
+| GET | `/top-cheapest?limit=10` | Top Cheapest Products |
+| GET | `/products` | Retrieve All Products |
 
 ---
 
-## Product Lookup
-
-```
-GET /product?name=BB Royal Idli Rice
-```
-
-HashMap Lookup.
-
----
-
-## Cheapest Product
-
-```
-GET /cheapest
-```
-
-Returns cheapest product.
-
----
-
-## Top Cheapest Products
-
-```
-GET /top-cheapest?limit=10
-```
-
-Returns Top N Cheapest Products.
-
----
-
-## All Products
-
-```
-GET /products
-```
-
-Returns all products.
-
----
-
-# 🖥️ Streamlit Pages
+# 🖥 Streamlit Pages
 
 - Home
 - Upload Dataset
@@ -400,7 +420,7 @@ Returns all products.
 
 ---
 
-# ▶️ Installation
+# ▶ Installation
 
 Clone Repository
 
@@ -408,7 +428,7 @@ Clone Repository
 git clone https://github.com/<YOUR_USERNAME>/dynamic-product-intelligence-platform.git
 ```
 
-Move into project
+Move into the project
 
 ```bash
 cd dynamic-product-intelligence-platform
@@ -416,18 +436,22 @@ cd dynamic-product-intelligence-platform
 
 Create Virtual Environment
 
-Windows
-
 ```bash
 python -m venv venv
 ```
 
-Activate
+Activate Virtual Environment
 
-Windows
+### Windows
 
 ```bash
 venv\Scripts\activate
+```
+
+### Linux / macOS
+
+```bash
+source venv/bin/activate
 ```
 
 Install Dependencies
@@ -438,7 +462,7 @@ pip install -r requirements.txt
 
 ---
 
-# ▶️ Run Backend
+# ▶ Run Backend
 
 ```bash
 uvicorn app.main:app --reload
@@ -452,21 +476,25 @@ http://127.0.0.1:8000/docs
 
 ---
 
-# ▶️ Run Frontend
+# ▶ Run Frontend
 
-Open another terminal
+Open another terminal.
+
+Activate the virtual environment.
+
+### Windows
 
 ```bash
 venv\Scripts\activate
 ```
 
-Run
+Run Streamlit
 
 ```bash
 streamlit run frontend/app.py
 ```
 
-Frontend URL
+Frontend
 
 ```
 http://localhost:8501
@@ -474,30 +502,30 @@ http://localhost:8501
 
 ---
 
-# 📈 Example Workflow
+# 📸 Application Workflow
 
-1. Start Backend
-2. Start Frontend
-3. Upload CSV
-4. Search Products
-5. Lookup Product
-6. Find Cheapest Products
-7. Explore Analytics Dashboard
+1. Start FastAPI backend
+2. Start Streamlit frontend
+3. Upload a supported Product Catalog CSV
+4. Search products using Trie
+5. Lookup product information using HashMap
+6. Find cheapest products using Min Heap
+7. Explore analytics through the dashboard
 
 ---
 
-# 🔮 Future Improvements
+# 🚀 Future Enhancements
 
 - PostgreSQL Support
 - User Authentication
-- Price Prediction using Machine Learning
-- Product Recommendation System
-- Multi-Dataset Comparison
-- Export Analytics Reports (PDF/Excel)
-- Cloud Deployment (Render/AWS/Azure)
+- Product Recommendation Engine
+- Price Trend Prediction
+- Machine Learning Models
+- Export Reports (PDF / Excel)
+- Cloud Deployment (AWS / Azure / Render)
 
 ---
 
 # 👨‍💻 Author
 
-Developed using Python, FastAPI, Streamlit, SQLAlchemy, SQLite, Pandas, Plotly, Trie, HashMap, and Min Heap.
+Developed using **Python**, **FastAPI**, **Streamlit**, **SQLite**, **SQLAlchemy**, **Pandas**, **Plotly**, **Trie**, **HashMap**, and **Min Heap**.
